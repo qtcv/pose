@@ -1,0 +1,57 @@
+name: windows
+
+on: [push]
+
+jobs:
+  windows:
+    runs-on: windows-2022
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3.0.0
+        with:
+          arch: win64_mingw81
+          version: "6.2.0"
+
+      - name: Cache opencv
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-opencv4.5.5
+        with:
+          path: |
+            C:/opencv
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install prerequisites
+        run: |
+          Choco-Install -PackageName innosetup --force
+          Choco-Install -PackageName cmake --force
+          $c="C:\opencv"
+          if(-not (Test-Path $c))
+          {
+            git clone https://github.com/opencv/opencv.git --branch 4.5.5 --depth 1
+            cmake -G "MinGW Makefiles" -S opencv -B opencv/build -D CMAKE_INSTALL_PREFIX=C:/opencv -D ENABLE_PRECOMPILED_HEADERS=OFF -D WITH_MSMF=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_TESTS=OFF -D BUILD_WITH_DEBUG_INFO=OFF -D BUILD_DOCS=OFF -D CMAKE_BUILD_TYPE=RELEASE
+            cd ./opencv/build
+            mingw32-make
+            mingw32-make install
+          }
+
+      - name: Build all
+        run: |
+          ./tools/sed/sed.exe -i "s/QT_DIR=D:\/programes\/Qt62\/6.2.4\/mingw_64\/bin/QT_DIR=%Qt6_Dir%/g" ./win_deploy.bat
+          ./tools/sed/sed.exe -i "s/QT_TOOLS_DIR=D:\/programs\/Qt62\/Tools\/mingw1120_64\/bin/QT_TOOLS_DIR=C:\/ProgramData\/Chocolatey\/lib\/mingw\/tools\/install\/mingw64\/bin/g" ./win_deploy.bat
+          ./win_deploy.bat
+
+      - name: Upload build asserts
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: pose_windows
+          path: |
+            ./InnoSetup/pose_setup.exe
+      - name: Run tests
+        run: |
+          ./InnoSetup/build/pose.exe --version
