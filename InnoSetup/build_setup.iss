@@ -2,8 +2,8 @@
 #define MyAppName "pose"
 #define MyAppVersion "#VERSION#"
 #define MyAppVersionInfoVersion "#VERSIONINFOVERSION#"
-#define MyAppPublisher "iminders <liuwen.w@qq.com>"
-#define MyAppURL "https://github.com/iminders/cvdis"
+#define MyAppPublisher "qtcv <liuwen.yzu@gmail.com>"
+#define MyAppURL "https://github.com/qtcv/pose"
 #define MyAppExeName "pose.exe"
 #define MyAppOutputName "pose_setup"
 

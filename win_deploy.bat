@@ -24,7 +24,7 @@ if exist ".\build_debug" (
 if exist ".\build_release" (
     rmdir /Q /S .\build_release
 )
-qmake DFP-1000.pro -spec win32-g++
+qmake pose.pro -spec win32-g++
 mingw32-make -j8
 :: clean打包目录
 if exist ".\InnoSetup\build" (
@@ -36,9 +36,9 @@ copy /y .\InnoSetup\build_setup.iss .\InnoSetup\build_temp_setup.iss
 .\tools\sed\sed.exe -i "s/#VERSIONINFOVERSION#/%POSE_VERSION%.000/g" .\InnoSetup\build_temp_setup.iss
 del /f /q /a .\sed*
 :: 构建打包目录
-xcopy /y .\build_release\out\DFP-1000.exe .\InnoSetup\build\
+xcopy /y .\build_release\out\pose.exe .\InnoSetup\build\
 :: 使用windeployqt拷贝依赖dll库到打包目录
-windeployqt --dir .\InnoSetup\build --no-translations --compiler-runtime .\InnoSetup\build\DFP-1000.exe
+windeployqt --dir .\InnoSetup\build --no-translations --compiler-runtime .\InnoSetup\build\pose.exe
 :: xcopy /y "%OPENCV_DIR%\libopencv_imgproc455.dll" ".\InnoSetup\build\"
 :: xcopy /y "%OPENCV_DIR%\libopencv_core455.dll" ".\InnoSetup\build\"
 :: xcopy /y "%OPENCV_DIR%\libopencv_videoio455.dll" ".\InnoSetup\build\"

@@ -1,3 +1,12 @@
+win32:{
+    include(platform_win32.pri)
+}
+
+unix:{
+    include(platform_unix.pri)
+}
+
+
 QT += quick
 
 SOURCES += \
