@@ -1,6 +1,9 @@
 name: windows
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   windows:
@@ -51,7 +54,6 @@ jobs:
           ./InnoSetup/build/pose.exe --version
 
       - name: Upload build asserts
-        if: "!contains(github.ref, 'main')"
         uses: actions/upload-artifact@v3.1.1
         with:
           name: pose_windows
