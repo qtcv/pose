@@ -1,6 +1,8 @@
 name: windows
 
-on: [push]
+on:
+ push:
+   - test
 
 jobs:
   windows:
