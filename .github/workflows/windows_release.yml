@@ -54,7 +54,7 @@ jobs:
           ./InnoSetup/build/pose.exe --version
 
       - name: Upload build asserts
-        uses: actions/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: pose_windows
           path: |
