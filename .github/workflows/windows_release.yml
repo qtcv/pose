@@ -53,9 +53,17 @@ jobs:
         run: |
           ./InnoSetup/build/pose.exe --version
 
-      - name: Upload build asserts
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: pose_windows
-          path: |
-            ./InnoSetup/pose_setup.exe
+      # - name: Upload build asserts
+      #   uses: actions/upload-artifact@v3.1.2
+      #   with:
+      #     name: pose_windows
+      #     path: |
+      #       ./InnoSetup/pose_setup.exe
+
+      - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ./InnoSetup/pose_setup.exe
+        asset_name: pose-win64
+        tag: ${{ github.ref }}
