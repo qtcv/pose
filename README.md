@@ -1,2 +1,2 @@
 # pose
-Qt pose action
+Qt Action Recognition
