@@ -60,10 +60,13 @@ jobs:
         #     path: |
         #       ./InnoSetup/pose_setup.exe
 
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action d@v2
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./InnoSetup/pose_setup.exe
-          asset_name: pose-win64
-          tag: ${{ github.ref }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./InnoSetup/pose_setup.exe
+          asset_name: pose_win64
+          asset_content_type: application/zip
