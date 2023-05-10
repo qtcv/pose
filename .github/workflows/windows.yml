@@ -1,6 +1,6 @@
 name: windows
 
-on: [push]
+on:[push]
 
 jobs:
   windows:
@@ -46,12 +46,14 @@ jobs:
           ./tools/sed/sed.exe -i "s/QT_TOOLS_DIR=D:\/programs\/Qt62\/Tools\/mingw1120_64\/bin/QT_TOOLS_DIR=C:\/ProgramData\/Chocolatey\/lib\/mingw\/tools\/install\/mingw64\/bin/g" ./win_deploy.bat
           ./win_deploy.bat
 
+      - name: Run tests
+        run: |
+          ./InnoSetup/build/pose.exe --version
+
       - name: Upload build asserts
+        if: "!contains(github.ref, 'main')"
         uses: actions/upload-artifact@v3.1.1
         with:
           name: pose_windows
           path: |
             ./InnoSetup/pose_setup.exe
-      - name: Run tests
-        run: |
-          ./InnoSetup/build/pose.exe --version
