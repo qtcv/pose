@@ -1,6 +1,9 @@
-name: windows
+name: windows_release
 
-on: [push]
+on:
+ push:
+   tags:
+     - "v*"
 
 jobs:
   windows:
@@ -49,3 +52,10 @@ jobs:
       - name: Run tests
         run: |
           ./InnoSetup/build/pose.exe --version
+
+      - name: Upload build asserts
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: pose_windows
+          path: |
+            ./InnoSetup/pose_setup.exe
