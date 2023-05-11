@@ -6,7 +6,7 @@ on:
      - "v*"
 
 jobs:
-  windows:
+  windows_release:
     runs-on: windows-2022
 
     steps:
