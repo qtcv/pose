@@ -53,31 +53,9 @@ jobs:
         run: |
           ./InnoSetup/build/pose.exe --version
 
-        # - name: Upload build asserts
-        #   uses: actions/upload-artifact@v3.1.2
-        #   with:
-        #     name: pose_windows
-        #     path: |
-        #       ./InnoSetup/pose_setup.exe
-      
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload build asserts
+        uses: actions/upload-artifact@v3.1.2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./InnoSetup/pose_setup.exe
-          asset_name: pose_win64
-          asset_content_type: application/zip
+          name: pose_windows
+          path: |
+            ./InnoSetup/pose_setup.exe
