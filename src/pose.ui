@@ -14,8 +14,41 @@
    <string>pose</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>账户</string>
+    </property>
+    <addaction name="action_login"/>
+    <addaction name="action_points"/>
+    <addaction name="action_logout"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_login">
+   <property name="text">
+    <string>登录</string>
+   </property>
+  </action>
+  <action name="action_points">
+   <property name="text">
+    <string>积分</string>
+   </property>
+  </action>
+  <action name="action_logout">
+   <property name="text">
+    <string>登出</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

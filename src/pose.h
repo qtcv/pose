@@ -15,6 +15,9 @@ public:
     pose(QWidget *parent = nullptr);
     ~pose();
 
+private slots:
+    void on_action_login_triggered();
+
 private:
     Ui::pose *ui;
 };

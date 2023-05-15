@@ -34,5 +34,6 @@ int main(int argc, char *argv[])
     }
     pose w;
     w.show();
+
     return a.exec();
 }
