@@ -22,14 +22,17 @@ CONFIG += c++17
 SOURCES += \
     src/login_dialog.cpp \
     src/main.cpp \
+    src/points_dialog.cpp \
     src/pose.cpp
 
 HEADERS += \
     src/login_dialog.h \
+    src/points_dialog.h \
     src/pose.h
 
 FORMS += \
     src/login_dialog.ui \
+    src/points_dialog.ui \
     src/pose.ui
 
 TRANSLATIONS += \
