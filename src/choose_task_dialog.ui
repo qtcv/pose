@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChooseTaskDialog</class>
+ <widget class="QDialog" name="ChooseTaskDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>560</width>
+    <height>470</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QCheckBox" name="checkBox_keypoint">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>130</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>关键点检测</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_fact_detect">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>100</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>人脸检测</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_pose_class">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>160</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>姿态识别</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_object_class">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>190</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>目标检测与分类</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>80</y>
+     <width>103</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>人脸检测</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>关键点识别</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>姿态识别</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>目标检测与分类</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>人脸识别</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>跳绳计数</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_object_class_2">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>220</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>人脸识别</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_object_class_3">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>250</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>跳绳计数</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

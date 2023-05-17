@@ -15,23 +15,7 @@ pose::~pose()
 }
 
 
-void pose::on_action_login_triggered()
-{
-    LoginDialog login_dig(this);
-    login_dig.resize(600, 600);
-    login_dig.exec();
-}
-
-
-void pose::on_action_points_triggered()
-{
-    PointsDialog points_dig(this);
-    points_dig.resize(200, 200);
-    points_dig.exec();
-}
-
-
-void pose::on_action_logout_triggered()
+void pose::on_logout_act_triggered()
 {
     QMessageBox *box = new QMessageBox(this);
     box->setIcon(QMessageBox::Information);
@@ -39,5 +23,29 @@ void pose::on_action_logout_triggered()
     box->setText(tr("登出成功"));
     QTimer::singleShot(1000, box, &QMessageBox::accept);
     box->exec();
+}
+
+
+void pose::on_points_act_triggered()
+{
+    PointsDialog points_dig(this);
+    points_dig.resize(200, 200);
+    points_dig.exec();
+}
+
+
+void pose::on_login_act_triggered()
+{
+    LoginDialog login_dig(this);
+    login_dig.resize(600, 600);
+    login_dig.exec();
+}
+
+
+void pose::on_choose_task_triggered()
+{
+    ChooseTaskDialog choose_task_dig(this);
+    choose_task_dig.resize(600, 600);
+    choose_task_dig.exec();
 }
 

@@ -20,17 +20,20 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/choose_task_dialog.cpp \
     src/login_dialog.cpp \
     src/main.cpp \
     src/points_dialog.cpp \
     src/pose.cpp
 
 HEADERS += \
+    src/choose_task_dialog.h \
     src/login_dialog.h \
     src/points_dialog.h \
     src/pose.h
 
 FORMS += \
+    src/choose_task_dialog.ui \
     src/login_dialog.ui \
     src/points_dialog.ui \
     src/pose.ui

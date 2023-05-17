@@ -5,6 +5,7 @@
 #include <QTimer>
 #include "login_dialog.h"
 #include "points_dialog.h"
+#include "choose_task_dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class pose; }
@@ -19,11 +20,14 @@ public:
     ~pose();
 
 private slots:
-    void on_action_login_triggered();
 
-    void on_action_points_triggered();
+    void on_logout_act_triggered();
 
-    void on_action_logout_triggered();
+    void on_points_act_triggered();
+
+    void on_login_act_triggered();
+
+    void on_choose_task_triggered();
 
 private:
     Ui::pose *ui;

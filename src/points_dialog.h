@@ -19,6 +19,8 @@ public:
 private slots:
     void on_buy_points_btn_clicked();
 
+    void on_points_exit_btn_clicked();
+
 private:
     Ui::PointsDialog *ui;
 };
