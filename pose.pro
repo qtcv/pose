@@ -104,14 +104,9 @@ macx:{
     INCLUDEPATH += -I $${OPENCV_DIR}/include
     DEPENDPATH +=$${OPENCV_DIR}/include
 
-    INCLUDEPATH += -I $${FFMPEG_DIR}/include
-    DEPENDPATH +=$${FFMPEG_DIR}/include
-
     LIBS += -L $${OPENCV_DIR}/lib -lopencv_imgproc
     LIBS += -L $${OPENCV_DIR}/lib -lopencv_core
     LIBS += -L $${OPENCV_DIR}/lib -lopencv_videoio
     LIBS += -L $${OPENCV_DIR}/lib -lopencv_objdetect
-
-    LIBS += -L$${FFMPEG_DIR}/lib -lavutil -lavformat -lavcodec -lavdevice -lavfilter -lpostproc -lswresample -lswscale
 
 }
